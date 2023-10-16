@@ -1,6 +1,5 @@
 package UniversityLibrary;
 public class Journal extends Library {
-
   private  int volume;
   private int number;
 
@@ -28,9 +27,7 @@ public class Journal extends Library {
 
     @Override
     public String toString() {
-
         if (getStatus().equals("on loan")) {
-
             return    "Type:" + " " + getType() + "\n"
                     + "Title:" + " " + getTitle() + "\n"
                     + "ID:" + " " + getID() + "\n"
@@ -45,7 +42,6 @@ public class Journal extends Library {
                     + "-----------------------------------------------------";
         }
         else {
-
             return    "Type:" + " " + getType() + "\n"
                     + "Title:" + " " + getTitle() + "\n"
                     + "ID:" + " " + getID() + "\n"
@@ -58,6 +54,5 @@ public class Journal extends Library {
                     + "Max number of days for borrowing:" + " " + getMaxnumbeofdays() + "\n"
                     + "-----------------------------------------------------";
         }
-
     }
 }

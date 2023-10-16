@@ -1,5 +1,5 @@
 // Fruish, Arnold,
-// This was a University Based assignment, have made changes to suit Github and added some small changes in as well.
+// This was a University based assignment. I have made changes to suit GitHub and added some small changes in as well.
 
 /* A program that saves objects to a library. This program allows you to select items for the library and
 choose if you want to "Select", "Borrow", "Return", "Rate" and to "Search".
@@ -14,7 +14,7 @@ import java.util.Date;
 import java.text.DateFormat;
 
 public class Main {
-    public static void displayInfo() {
+    public static void displayInfo() { //Always a must to have this included.
         System.out.println("-------------------------------------");
         System.out.println("OOP Library Application");
         System.out.println("Submitted by: Github @MrArnoldInTech");
@@ -59,8 +59,8 @@ public class Main {
                     director = details[4];
                     maxnumbeofdays = 7;
                     Movie Mov = new Movie(type, ID, title, year, director, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                    Library Lib = new Library();
-                    Movies.add(Mov);
+                   // Library Lib = new Library();
+                    //Movies.add(Mov);
                     Items.add(Mov);
                 }
                 if (type.equals("Book")) {
@@ -71,8 +71,8 @@ public class Main {
                     numberofpages = Integer.parseInt(details[5]);
                     maxnumbeofdays = 28;
                     Book Bk = new Book(type, ID, title, year, author, numberofpages, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                    Library Lib = new Library();
-                    Books.add(Bk);
+                   // Library Lib = new Library();
+                   // Books.add(Bk);
                     Items.add(Bk);
                 }
                 if (type.equals("Journal")) {
@@ -83,8 +83,8 @@ public class Main {
                     number = Integer.parseInt(details[5]);
                     maxnumbeofdays = 14;
                     Journal Jour = new Journal(type, ID, title, year, volume, number, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                    Library Lib = new Library();
-                    Journals.add(Jour);
+                    //Library Lib = new Library();
+                   // Journals.add(Jour);
                     Items.add(Jour);
                 }
             }
@@ -125,7 +125,7 @@ public class Main {
             int i = 0;
             String answerofwhichnumber = null;
 
-            // 3 options to choose from quit, search by id or a phrase in the title
+            // 3 options to choose from "quit", "search by id" or a "phrase in the title"
             System.out.println("Enter 'q' to quit, enter 'i' to search by ID, or enter any other key to search by phrase in title");
             String myInputValue = myLine.nextLine();
 
@@ -203,7 +203,7 @@ public class Main {
             //Option 2 of first statement
             if (myInputValue.equals(id_i)) {
 
-                // Two options to choose from, b or a 3 digit number to choose from
+                // Two options to choose from, b or a 3-digit number to choose from
                 System.out.println("Enter ID to start search, or enter 'b' to go back to choose search method");
                 myInputValue = myLine.nextLine();
 
@@ -211,11 +211,8 @@ public class Main {
                     continue;
                 }
 
-
                 try {
                     if (myInputValue.matches("[0-9]+") && myInputValue.length() == 3) {
-
-                       // System.out.print;
 
                     }
                     else {
@@ -227,31 +224,7 @@ public class Main {
                     Readingtheinput();
                 }
 
-
-
-               // String regex1 = "\\d+";
-               // if (myInputValue.valueOf(int))
                 idsearchvalue = Integer.parseInt(myInputValue);
-
-               /* try {
-
-                    if(!myInputValue.matches(regex1)){
-                        throw new Exception("Does not contain a number");
-
-                    }
-
-                    //throw new Exception("Not a valid number");
-                //idsearchvalue = Integer.parseInt(myInputValue);
-
-                } catch (Exception e) {
-
-                    e.printStackTrace();
-                    Readingtheinput();
-                } */
-
-               // if (myInputValue.length() == 3) {
-               //     idsearchvalue = Integer.parseInt(myInputValue);
-               // }
 
                 for (Library Lib: Items) {
                     if (Lib.getID() == idsearchvalue) {

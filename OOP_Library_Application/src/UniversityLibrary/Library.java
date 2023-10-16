@@ -12,14 +12,12 @@ public class Library {
    protected String status;
    protected String date;
 
-
     public Library(String type, int ID, String title, int year, float averagerating,  int numberofreviewers, int maxnumbeofdays, String status, String date ){
         setID(ID);
         setTitle(title);
         setYear(year);
         setType(type);
         setDate(date);
-
         setNumberofvieweres(numberofreviewers);
         setAveragerating(averagerating);
         setMaxnumbeofdays(maxnumbeofdays);
@@ -27,7 +25,6 @@ public class Library {
     }
 
     public Library() {
-
     }
     //-------------------------- Set Values Part 1 ------------------------------
 
@@ -104,5 +101,4 @@ public int getNumberofreviewers() {
     public String getStatus(){
         return status;
     }
-
 }

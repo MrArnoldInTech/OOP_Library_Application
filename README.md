@@ -24,7 +24,8 @@ Main Tasks for this application:
 - "Return" the selected item if it is on loan or
 - "Rate" the selected item and to which it should display the new averrage rating. 
 
-To add: a diagram of the how program works. 
+![image](https://github.com/MrArnoldInTech/OOP_Library_Application/assets/72899208/9b832d3c-58e0-45bd-a1f8-76314cdfe79a)
+
 
 
 

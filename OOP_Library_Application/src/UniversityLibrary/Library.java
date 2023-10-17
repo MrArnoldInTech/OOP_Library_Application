@@ -1,7 +1,6 @@
 package UniversityLibrary;
 
 public class Library {
-
    protected String type;
    protected int ID;
    protected int year;
@@ -27,10 +26,9 @@ public class Library {
     public Library() {
     }
     //-------------------------- Set Values Part 1 ------------------------------
-
     public void setType(String type){
-        this.type = type; }
-
+        this.type = type;
+    }
     public void setID(int ID){
         this.ID = ID;
     }
@@ -46,7 +44,6 @@ public class Library {
     public void setDate(String date){
         this.date = date;
     }
-
 
 //-------------------------- Set Values Part 2 ------------------------------
     public void setNumberofvieweres(int numberofvieweres){
@@ -87,7 +84,6 @@ public class Library {
 
 //-------------------------- Get Values Part 2  ------------------------------
 public int getNumberofreviewers() {
-
     return numberofreviewers;
 }
     public float getAveragerating(){

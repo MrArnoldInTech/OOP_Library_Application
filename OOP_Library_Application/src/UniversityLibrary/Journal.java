@@ -5,7 +5,6 @@ public class Journal extends Library {
 
     public Journal(String type, int ID, String title, int year, int volume, int number, float averagerating,  int numberofrevieweres, int maxnumbeofdays, String status, String date ){
         super(type, ID, title, year, averagerating, numberofrevieweres, maxnumbeofdays, status, date);
-
         setVolume(volume);
         setNumber(number);
     }

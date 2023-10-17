@@ -17,16 +17,10 @@ public class Main {
     public static void displayInfo() { //Always a must to have this included.
         System.out.println("-------------------------------------");
         System.out.println("OOP Library Application");
-        System.out.println("Submitted by: Github @MrArnoldInTech");
+        System.out.println("Created by: Github @MrArnoldInTech");
         System.out.println("-------------------------------------");
     }
-
-    static List<Movie> Movies = new ArrayList<Movie>();
-    static List<Book> Books = new ArrayList<Book>();
-    static List<Journal> Journals = new ArrayList<Journal>();
     static List<Library> Items = new ArrayList<Library>();
-
-
     public Main() {
         displayInfo();
         int ID = 0;
@@ -57,8 +51,6 @@ public class Main {
                     director = details[4];
                     maxnumbeofdays = 7;
                     Movie Mov = new Movie(type, ID, title, year, director, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                   // Library Lib = new Library();
-                    //Movies.add(Mov);
                     Items.add(Mov);
                 }
                 if (type.equals("Book")) {
@@ -69,8 +61,6 @@ public class Main {
                     numberofpages = Integer.parseInt(details[5]);
                     maxnumbeofdays = 28;
                     Book Bk = new Book(type, ID, title, year, author, numberofpages, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                   // Library Lib = new Library();
-                   // Books.add(Bk);
                     Items.add(Bk);
                 }
                 if (type.equals("Journal")) {
@@ -81,8 +71,6 @@ public class Main {
                     number = Integer.parseInt(details[5]);
                     maxnumbeofdays = 14;
                     Journal Jour = new Journal(type, ID, title, year, volume, number, averagerating, numberofreviewers, maxnumbeofdays, status, date);
-                    //Library Lib = new Library();
-                   // Journals.add(Jour);
                     Items.add(Jour);
                 }
             }
@@ -96,15 +84,6 @@ public class Main {
         for (Library Lib : Items){
             System.out.println(Lib.toString());
             }
-      /*  for (Movie Mov : Movies) {
-            System.out.println(Mov.toString());
-        }
-        for (Book Bk : Books) {
-            System.out.println(Bk.toString());
-        }
-        for (Journal Jour : Journals) {
-            System.out.println(Jour.toString());
-        } */
     }
     static void Readingtheinput() {
         while (true) {
@@ -120,7 +99,6 @@ public class Main {
             String[] temptitle = new String[100];
             int max = 0;
             int i = 0;
-            String answerofwhichnumber = null;
 
             // 3 options to choose from "quit", "search by id" or a "phrase in the title"
             System.out.println("Enter 'q' to quit, enter 'i' to search by ID, or enter any other key to search by phrase in title");
@@ -129,11 +107,9 @@ public class Main {
             if(!myInputValue.equals(id_i) && !myInputValue.equals(quit)) { //if its not I or Q and any other key then it will search through title
                 System.out.println("Enter phrase in title to start search, or enter 'b' to go back to chose search method");
                 myInputValue = myLine.nextLine();
-
                 if(myInputValue.equals(back)){
                     continue;
                 }
-
                 for (Library Lib : Items) {
                     if (Lib.getTitle().contains(myInputValue) ) { //for searching with title
                         numberofsearch[i]++;
@@ -147,7 +123,6 @@ public class Main {
                     if(max == 0){
                         throw new Exception("WARNING NO ITEM WAS FOUND OR INVALID PHRASE! RESTARTING SEARCH");
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     continue;
@@ -181,12 +156,10 @@ public class Main {
                     }
                 }
             }
-
             //Option 1 of first statement
             if (myInputValue.equals((quit))) {
                 System.exit(32);
             }
-
             //Option 2 of first statement
             if (myInputValue.equals(id_i)) {
                 // Two options to choose from, b or a 3-digit number to choose from
@@ -195,7 +168,6 @@ public class Main {
                 if (myInputValue.equals(back)) {
                     continue;
                 }
-
                 try {
                     if (myInputValue.matches("[0-9]+") && myInputValue.length() == 3) {
                     }
@@ -216,7 +188,6 @@ public class Main {
                         if(itemfound == 0){
                             throw new Exception("INVALID ID NUMBER OR NOT FOUND IN THE LIST! RESTARTING SEARCH");
                         }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     Readingtheinput();
@@ -230,14 +201,12 @@ public class Main {
                         result = l;
                     }
                 }
-
                 // There are two options here, any key to select, else press i to search another id again.
                 System.out.println("Enter 'i' to search other item by ID, or enter any other key to select this item");
                 myInputValue = myLine.nextLine();
                 if(myInputValue.equals(id_i)){
                     continue;
                 }
-
                 if (!myInputValue.equals(id_i)) {
                     System.out.println();
                     System.out.println("Selected item is");
@@ -255,12 +224,9 @@ public class Main {
             }
         }
     }
-
     static void BorrowandRate(int x, String s) {
-
         String borrow = "b";
         String _rate = "a";
-
         float myratingtemp = 0;
         int myidtemp = 0;
         myidtemp = x;
@@ -272,50 +238,37 @@ public class Main {
         Calendar c = Calendar.getInstance();
         c.setTime(currentdate);
         c.add(Calendar.DATE, 28);
-       // Date currentDateamount = c.getTime();
-
         Scanner myLine = new Scanner(System.in);
         String myInputValue = null;
-
-                    myInputValue = _rate;
+        myInputValue = _rate;
                 if(!from_exception.equals(_rate)) {
-
                     System.out.println("Enter 'b' to borrow the item, enter 'a' to rate the item, or enter any other key to restart");
                      myInputValue = myLine.nextLine();
-
                     if ((!myInputValue.equals(borrow)) && (!myInputValue.equals(_rate))) {
                         Readingtheinput();
                     }
-
                 }
             if ((!myInputValue.equals(borrow)) && (!myInputValue.equals(_rate))) { // If its not equal to b or a then restart from the begining
                 return;
             }
 
-
             if (myInputValue.equals(_rate)) {
                 System.out.println("Please enter your rating (0 - 10)"); //first rating
                 myInputValue = myLine.nextLine();
-
                 myratingtemp = Float.parseFloat(myInputValue);
-
                 try {
                     if((myratingtemp > 10) || (myratingtemp < 0)) {
-
                     throw new Exception("Not a valid number rating");
                       }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     BorrowandRate(myidtemp, "a");
                 }
                 for (Library Lib : Items) {
                     if (myidtemp == Lib.getID()) {
-
                         Lib.setNumberofvieweres(Lib.getNumberofreviewers() + 1);
                         Lib.setAveragerating((Lib.getAveragerating() + myratingtemp) / Lib.getNumberofreviewers());
                         System.out.println("The item's new average rating is" + " " + Lib.getAveragerating());
-
                     }
                 }
                 for (Library Lib : Items) {
@@ -349,14 +302,12 @@ public class Main {
                         System.out.println(Lib.toString());
                     }
                 }
-
                 for (Library Lib : Items){
                     if (myidtemp == Lib.getID()) {
                         if (Lib.getStatus().equals("on loan")) {
                        RateandReturn(myidtemp, "");
                         }
                     }
-
                 }
             }
         }
@@ -429,7 +380,6 @@ public class Main {
                 RateandReturn(myidtemp, "");
             }
     }
-
     public static void main(String[] args) {
          new Main();
          Readingtheinput();
